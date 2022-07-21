@@ -14,3 +14,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.active {
+  color: rgb(22 78 99);
+  font-weight: bold;
+}
