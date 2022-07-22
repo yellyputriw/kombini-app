@@ -1,9 +1,9 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { NavLink, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const cartQuantity = useSelector((state) =>  state.cart.totalQuantity)
+  const cartQuantity = useSelector((state) => state.cart.totalQuantity);
 
   return (
     <header className="w-full h-20 shadow-md flex justify-between items-center px-36">
@@ -34,9 +34,11 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li className="mx-4">
-            <button className="border border-cyan-900 rounded-md py-2 px-6 hover:bg-cyan-900 hover:text-white">
+            <Link
+              to="/auth"
+              className="border border-cyan-900 rounded-md py-2 px-6 hover:bg-cyan-900 hover:text-white">
               Login
-            </button>
+            </Link>
           </li>
         </ul>
       </nav>

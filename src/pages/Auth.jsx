@@ -59,53 +59,80 @@ const Auth = () => {
   };
 
   return (
-    <section id="login" className="grid grid-cols-2 max-h-screen">
-      <div className="container flex flex-col items-center">
+    <section id="login" className="grid grid-cols-2 max-h-screen ">
+      <div className="container flex flex-col items-center w-full h-screen">
         {isLogin ? (
           <img
             src="https://images.unsplash.com/photo-1594955332421-2033cfd867b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
             alt="login"
-            className="max-h-screen"
+            className="object-cover w-full h-full"
           />
         ) : (
           <img
-            src="https://images.unsplash.com/photo-1604551633638-482ebc019039?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+            src="https://images.unsplash.com/photo-1584269940522-10239e4bec6f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
             alt="SignUp"
-            className="h-full"
+            className="object-cover w-full h-full"
           />
         )}
       </div>
-      <div className="container">
-        <div>
-          <h1>Kombini App</h1>
-          <h2>{isLogin ? "Login" : "Sign Up"}</h2>
+      <div className="flex items-center justify-center flex-col py-6 px-36 max-h-screen">
+        <h1 className="text-5xl mb-6 font-semibold text-orange-600">
+          Kombini App
+        </h1>
+        <div className=" my-4 shadow-md p-8 rounded-lg w-full">
+          <h2 className="mb-4 text-2xl text-center">
+            {isLogin ? "Login" : "Sign Up"}
+          </h2>
           <form onSubmit={submitHandler}>
-            <div>
-              <label htmlFor="email">Email</label>
-              <input type="email" id="email" required ref={emailInputRef} />
+            <div className="flex flex-col mb-4">
+              <label htmlFor="email" className="mb-1">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                required
+                ref={emailInputRef}
+                className="border rounded-md py-3 px-4"
+              />
             </div>
-            <div>
-              <label htmlFor="password">Password</label>
+            <div className="flex flex-col mb-4">
+              <label htmlFor="password" className="mb-1">
+                Password
+              </label>
               <input
                 type="password"
                 id="password"
                 minLength="8"
                 required
                 ref={passwordInputRef}
+                className="border rounded-md py-3 px-4"
               />
             </div>
-            <button>{isLogin ? "Login" : "Create Account"}</button>
+            <div className="flex justify-center">
+              <button className="text-center bg-orange-500 text-white font-semibold w-full rounded-md py-3 px-4 hover:bg-white border border-orange-500 hover:text-orange-500">
+                {isLogin ? "Login" : "Create Account"}
+              </button>
+            </div>
           </form>
-          <div>
+          <div className="my-4">
             {isLogin ? (
-              <p>
+              <p className="text-sm">
                 Don't have an account?{" "}
-                <button onClick={switchAuthModeHandler}>Sign Up</button>
+                <button
+                  className="text-sm border-b border-b-orange-500 hover:text-orange-500"
+                  onClick={switchAuthModeHandler}>
+                  Sign Up
+                </button>
               </p>
             ) : (
-              <p>
+              <p className="text-sm">
                 Already have an account?{" "}
-                <button onClick={switchAuthModeHandler}>Login</button>
+                <button
+                  className="text-sm border-b border-b-orange-500 hover:text-orange-500"
+                  onClick={switchAuthModeHandler}>
+                  Login
+                </button>
               </p>
             )}
           </div>
